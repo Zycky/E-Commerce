@@ -1,0 +1,228 @@
+
+body {
+    margin: 0;
+    font-family: sans-serif;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 10% 12% 68% 10%;
+    grid-template-areas:
+        "nav"
+        "filtro"
+        "main"
+        "footer";
+    height: 100vh;
+}
+
+
+a {
+    text-decoration: none;
+}
+
+/* Barra Navegación */
+nav {
+
+    grid-area: nav;
+    background-color: rgb(51, 0, 0);
+    color: rgb(255, 255, 0);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1em 0 1em;
+}
+
+.tienda {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.tienda i {
+    margin-right: 0.5em;
+}
+
+.menu {
+    display: none;
+}
+
+
+/* Filtro */
+
+.filtro {
+    grid-area: filtro;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: rgb(114, 0, 0);
+    padding: 1em;
+    position: relative;
+}
+
+.filtro div {
+    width: 70%;
+    padding: 0.2em;
+}
+
+.filtro p {
+    margin: 0;
+}
+
+select {
+    padding: 0.5em 0 0.5em 0.5em;
+    color: gray;
+    border: lightgray solid 1px;
+    border-radius: 4px;
+    width: 70%;
+}
+
+/* Grid productos */
+
+main {
+    grid-area: main;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+
+.product-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 1em;
+    overflow-y: scroll;
+    width: 80%;
+
+}
+
+.product {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border: solid lightgray 1px;
+    border-radius: 4px;
+    margin-bottom: 1.5em;
+}
+
+.product img {
+    max-width: 100%;
+}
+
+.product_text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 1em;
+}
+
+.product button {
+    background-color: red;
+    border: gray solid 1px;
+    border-radius: 4px;
+    padding: 0.5em 1em 0.5em 1em;
+    font-size: large;
+}
+
+.product button a {
+    color: white;
+}
+
+
+/* Footer */
+footer {
+    grid-area: footer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(76, 0, 255);
+    color: white;
+    padding: 1em;
+}
+
+footer div {
+    margin-right: 0.5em;
+}
+/* Versión de Escritorio */
+
+@media (min-width: 576px) {
+    body {
+        grid-template-columns: 20% auto auto auto auto;
+        grid-template-rows: 15% 65% 20%;
+        grid-template-areas:
+            "nav filtro filtro filtro filtro"
+            "nav main main main main"
+            "footer main main main main";
+    }
+
+    /* Barra navegación */
+    nav {
+        justify-content: start;
+        flex-direction: column;
+        padding-top: 1em;
+    }
+
+    nav a {
+        color: white;
+    }
+
+    .menu {
+        margin: 0.75em;
+        display: flex;
+    }
+
+    .tienda {
+        justify-content: center;
+        text-align: center;
+    }
+
+
+    /* Filtro */
+
+    .filtro {
+        padding-top: 0.7em;
+    }
+
+    /* Grid de productos */
+
+    .product-container {
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1em;
+        width: 90%;
+    }
+
+    .product {
+        width: 20%;
+        height: auto;
+    }
+    .product img {
+        max-width: 100%;
+        filter: grayscale(100%); /* Filtro blanco y negro para demostrar animacion */
+        transition: filter 0.5s ease;
+    }
+    .product:hover img,
+    .product:focus img {
+    filter: grayscale(0%); /* Cambio a imagen original */
+}
+    /* Footer */
+
+    footer {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    footer p {
+        margin-bottom: 0;
+    }
+}
