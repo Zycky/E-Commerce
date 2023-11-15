@@ -102,7 +102,6 @@ main {
 }
 
 .product {
-
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -116,14 +115,7 @@ main {
     max-width: 100%;
 }
 
-.product_text {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding-bottom: 1em;
-}
+
 
 .product button {
     background-color: red;
@@ -131,7 +123,15 @@ main {
     border-radius: 4px;
     padding: 0.5em 1em 0.5em 1em;
     font-size: large;
+    transition: background-color 0.3s, color 0.3s;
 }
+.product button:hover{
+    background-color: #004d1d;
+    color: #000000;
+}
+.product button:active {
+    transform: scale(0.95);
+  }
 
 .product button a {
     color: white;
@@ -152,17 +152,6 @@ footer {
 footer div {
     margin-right: 0.5em;
 }
-/* Versión de Escritorio */
-
-@media (min-width: 576px) {
-    body {
-        grid-template-columns: 20% auto auto auto auto;
-        grid-template-rows: 15% 65% 20%;
-        grid-template-areas:
-            "nav filtro filtro filtro filtro"
-            "nav main main main main"
-            "footer main main main main";
-    }
 
     /* Barra navegación */
     nav {
@@ -195,19 +184,21 @@ footer div {
     /* Grid de productos */
 
     .product-container {
-        flex-direction: row;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 1em;
-        width: 90%;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
+      gap: 20px; 
     }
 
     .product {
-        width: 20%;
-        height: auto;
+        text-align: center;
+        border: 1px solid #ae00ff;
+        padding: 20px;
+        background-color: #00000096;
     }
+    
     .product img {
         max-width: 100%;
+        height:auto;
         filter: grayscale(100%); /* Filtro blanco y negro para demostrar animacion */
         transition: filter 0.5s ease;
     }
@@ -224,5 +215,16 @@ footer div {
 
     footer p {
         margin-bottom: 0;
+    }
+    /* Versión de Escritorio */
+
+@media (min-width: 576px) {
+    body {
+        grid-template-columns: 20% auto auto auto auto;
+        grid-template-rows: 15% 65% 20%;
+        grid-template-areas:
+            "nav filtro filtro filtro filtro"
+            "nav main main main main"
+            "footer main main main main";
     }
 }
